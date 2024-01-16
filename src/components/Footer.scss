@@ -1,0 +1,29 @@
+.Footer {
+  height: 40px;
+  width: 100%;
+  padding: 10px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: solid 1px white;
+
+  .Footer__link {
+    transition: 1s;
+    user-select: none;
+      
+    .Footer__link__creator {
+      padding: 0;
+      margin: 0;
+      font-size: 12px;
+    }
+  
+    .Footer__link__img {
+      height: 20px;
+      filter: invert(1);
+    }
+    
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+}

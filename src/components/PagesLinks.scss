@@ -1,0 +1,20 @@
+.PageLink {
+	color: white;
+	margin-right: 10px;
+	font-weight: 700;
+	transition: 1s;
+}
+
+.ActivePageLink {
+	background: linear-gradient(to right,#9eff37 20%, #e2ff27 30%, #a8ff2e 70%, #c9ff28 80%);
+	background-clip: text;
+	-webkit-text-fill-color: transparent;
+	-webkit-background-clip: text;
+	background-size: 500% auto;
+	animation: ActivePageLink-iridescent 5s ease-in-out infinite alternate;
+}
+
+@keyframes ActivePageLink-iridescent  {
+  0% {background-position: 0% 50%;}
+  100% {background-position: 100% 50%;}
+}
