@@ -14,7 +14,7 @@ export const dataSlice = createSlice({
 
     updateSaveCharacters: (state, action) => {
       if (state.charactersArr === null) state.charactersArr = action.payload;
-      else {
+      if (state.charactersArr !== null) {
         const arrId = [];
         state.charactersArr.forEach(element => {
           arrId.push(element.id)
