@@ -1,4 +1,5 @@
 import React from 'react';
+import { memo } from 'react';
 
 import './Card.scss';
 

@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import "regenerator-runtime/runtime";
 import { useDispatch, useSelector } from 'react-redux';
-import { updateSaveCharacters } from "../redux/dataSlice.js";
+import { updateSaveCharacters, updatePage, updateLoad } from "../redux/dataSlice.js";
 
 import { PagesLinks } from '../components/PagesLinks';
 import PageBackground from '../components/PageBackground';
@@ -35,10 +35,44 @@ export const PageMain = () => {
   }
 
   function saveCharacters(charactersArr) {
-    dispatch(updateSaveCharacters(charactersArr));
+      dispatch(updateSaveCharacters(charactersArr));
+      setTimeout(() => {
+        dispatch(updateLoad(false));
+      }, 1000)
   }
 
   if (dataRedux.charactersArr === null) getData('https://rickandmortyapi.com/api/character/?page=1');
+
+  function throttle(callee, timeout) {
+    let timer = null
+  
+    return function perform(...args) {
+      if (timer) return
+  
+      timer = setTimeout(() => {
+        callee(...args)
+  
+        clearTimeout(timer)
+        timer = null
+      }, timeout)
+    }
+  }
+
+  window.addEventListener("scroll", throttle( () => {
+    const height = document.body.offsetHeight;
+    const screenHeight = window.innerHeight;
+    const scrolled = window.scrollY;
+    const threshold = height - screenHeight / 4;
+    const position = scrolled + screenHeight;
+  
+    //if (scrolled > 400) btnUp.classList.remove('unvisible');
+    //else btnUp.classList.add('unvisible');
+    if (position >= threshold && dataRedux.page < 42 && dataRedux.load === false) {
+      dispatch(updatePage(dataRedux.page + 1));
+      dispatch(updateLoad(true));
+      getData(`https://rickandmortyapi.com/api/character/?page=${dataRedux.page + 1}`);
+    }
+  }, 1000));
 
   let cardCode;
   if (dataRedux.charactersArr !== null) {

@@ -1,9 +1,10 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-const initialState={
+const initialState = {
   page: 1,
   maxPage: 42,
   charactersArr: null,
+  load: false,
 }
 
 export const dataSlice = createSlice({
@@ -12,13 +13,31 @@ export const dataSlice = createSlice({
   reducers: {
 
     updateSaveCharacters: (state, action) => {
-      state.charactersArr = action.payload;
-      console.log(action.payload);
+      if (state.charactersArr === null) state.charactersArr = action.payload;
+      else {
+        const arrId = [];
+        state.charactersArr.forEach(element => {
+          arrId.push(element.id)
+        });
+        action.payload.forEach(element => {
+          if (arrId.indexOf(element.id) === -1) {
+            state.charactersArr.push(element);
+          }
+        });
+      }
+    },
+
+    updatePage: (state, action) => {
+      state.page = action.payload;
+    },
+
+    updateLoad: (state, action) => {
+      state.load = action.payload;
     },
 
   },
 });
 
-export const { updateSaveCharacters } = dataSlice.actions;
+export const { updateSaveCharacters, updatePage, updateLoad } = dataSlice.actions;
 
 export default dataSlice.reducer;
