@@ -21,6 +21,15 @@
       flex: wrap;
       align-items: center;
       justify-content: center;
+
+      .PageMain__cards__controls__page {
+        margin: 0;
+        padding: 0;
+        width: 40px;
+        font-size: 20px;
+        font-weight: 700;
+        text-align: center;
+      }
     }
   }
 
@@ -45,6 +54,14 @@
     &:active {
       transform: scale(0.9);
       transition: 0.2s;
+    }
+
+    &:disabled {
+      cursor: default;
+      transform: scale(1);
+      background: none;
+      border-color: gray;
+      color: gray;
     }
   }
 }

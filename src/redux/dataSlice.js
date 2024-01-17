@@ -13,7 +13,10 @@ export const dataSlice = createSlice({
   reducers: {
 
     updateSaveCharacters: (state, action) => {
-      if (state.charactersArr === null) state.charactersArr = action.payload;
+      state.charactersArr = action.payload;
+    },
+
+    upadteScrollCharacters: (state, action) => {
       if (state.charactersArr !== null) {
         const arrId = [];
         state.charactersArr.forEach(element => {
@@ -38,6 +41,6 @@ export const dataSlice = createSlice({
   },
 });
 
-export const { updateSaveCharacters, updatePage, updateLoad } = dataSlice.actions;
+export const { updateSaveCharacters, upadteScrollCharacters, updatePage, updateLoad } = dataSlice.actions;
 
 export default dataSlice.reducer;
