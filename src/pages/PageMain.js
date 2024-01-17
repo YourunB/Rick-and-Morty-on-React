@@ -9,7 +9,6 @@ import PageBackground from '../components/PageBackground';
 import Card from '../components/Card';
 
 import './PageMain.scss';
-import { isDisabled } from '@testing-library/user-event/dist/utils/index.js';
 
 export const PageMain = () => {
 
