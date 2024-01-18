@@ -18,6 +18,7 @@ export const PageMain = () => {
   const [checkedCard, setCheckedCard] = useState(null);
 
   const btnToTop = useRef(null);
+  const animLoad = useRef(null);
 
   const dispatch = useDispatch();
   const dataRedux = useSelector( state => state.data );
@@ -58,6 +59,9 @@ export const PageMain = () => {
   }
 
   function getData(link, action = 'page') {
+    if (animLoad.current !== null) {
+      animLoad.current.className = 'PageMain__load';
+    }
     let url = link;
     const options = {
       method: 'GET',
@@ -73,6 +77,11 @@ export const PageMain = () => {
         if (error !== "") console.log("Error: " + error);
       }
     }
+    setTimeout(() => {
+      if (animLoad.current !== null) {
+        animLoad.current.className = 'PageMain__load PageMain__load_hide'
+      }
+    }, 500);
   }
 
   function saveCharacters(charactersArr) {
@@ -99,6 +108,7 @@ export const PageMain = () => {
 
   function nextPage() {
     if (dataRedux.page < 42) {
+      dispatch(updateLoad(true));
       dispatch(updatePage(dataRedux.page + 1));
       getData(`https://rickandmortyapi.com/api/character/?page=${dataRedux.page + 1}`);
     }
@@ -106,6 +116,7 @@ export const PageMain = () => {
 
   function prevPage() {
     if (dataRedux.page > 1) {
+      dispatch(updateLoad(true));
       dispatch(updatePage(dataRedux.page - 1));
       getData(`https://rickandmortyapi.com/api/character/?page=${dataRedux.page - 1}`);
     }
@@ -174,6 +185,7 @@ export const PageMain = () => {
         </div> : null}
         {cardCode}
       </section>
+      <img ref={animLoad} className='PageMain__load PageMain__load_hide' src='./images/load.gif' alt='Load'/>
       <button ref={btnToTop} className='PageMain__btn to-top' onClick={scrollToTop}>&#8657;</button>
     </main>
   );

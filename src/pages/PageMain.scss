@@ -78,6 +78,20 @@
     }
   }
 
+  .PageMain__load {
+    position: fixed;
+    z-index: 150;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 300px;
+    width: 100%;
+  }
+
+  .PageMain__load_hide {
+    display: none;
+  }
+
   .PageMain__btn {
     background: none;
     border-radius: 50%;
