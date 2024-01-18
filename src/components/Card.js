@@ -1,13 +1,18 @@
 import React from 'react';
+import {appEvents} from './events';
 
 import './Card.scss';
 
 const Card = props => {
 
+  function checkCard() {
+    appEvents.emit('EventCheckCard', props);
+  }
+
   return (
-    <div className='Card'>
-      <img className='Card__img' src={props.characterImage}></img>
-      <p className='Card__name'>{props.characterName}</p>
+    <div className='Card' onClick={()=>{checkCard()}}>
+      <img className='Card__img' src={props.image}></img>
+      <p className='Card__name'>{props.name}</p>
     </div>
   );
 

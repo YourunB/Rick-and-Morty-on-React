@@ -3,26 +3,40 @@ import "regenerator-runtime/runtime";
 import { useDispatch, useSelector } from 'react-redux';
 import { updateSaveCharacters, upadteScrollCharacters, updatePage, updateLoad } from "../redux/dataSlice.js";
 import { NavLink } from 'react-router-dom';
+import {appEvents} from '../components/events.js';
 
 import { PagesLinks } from '../components/PagesLinks';
 import PageBackground from '../components/PageBackground';
 import Card from '../components/Card';
+import CardModal from '../components/CardModal';
 
 import './PageMain.scss';
 
 export const PageMain = () => {
 
   const [pagination, setPagination] = useState(false);
+  const [checkedCard, setCheckedCard] = useState(null);
 
   const dispatch = useDispatch();
   const dataRedux = useSelector( state => state.data );
 
   useEffect(() => {
+    appEvents.addListener('EventCheckCard', checkCard);
+    appEvents.addListener('EventCloseCardModal', closeCardModal);
     window.addEventListener("scroll", scrollLoad);
     return () => {
+      //appEvents.removeEventListener('EventCheckCard', checkCard);
+      //appEvents.removeEventListener('EventCloseCardModal', closeCardModal);
       window.removeEventListener("scroll", scrollLoad);
     }
   }, [dataRedux]);
+
+  function checkCard(character) {
+    setCheckedCard(character);
+  }
+  function closeCardModal() {
+    setCheckedCard(null); 
+  }
 
   function scrollLoad() {
     const height = document.body.offsetHeight;
@@ -115,14 +129,20 @@ export const PageMain = () => {
     cardCode = dataRedux.charactersArr.map( el => {
       return <Card
         key = {el.id}
-        characterName = {el.name}
-        characterImage = {el.image}
+        name = {el.name}
+        image = {el.image}
+        species = {el.species}
+        gender = {el.gender}
+        origin = {el.origin.name}
+        location = {el.location.name}
+        episode= {el.episode[0].slice(el.episode[0].lastIndexOf('/') + 1)}
       />
     });
   }
 
   return (
     <main className='PageMain'>
+      {checkedCard !== null ? <CardModal character={checkedCard} /> : null}
       <PageBackground/>
       <PagesLinks/>
       <section className='PageMain__head'>
