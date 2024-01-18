@@ -246,7 +246,7 @@ export const PageMain = () => {
       />
       <button
         ref={btnToTop}
-        className="PageMain__btn to-top"
+        className="PageMain__btn to-top to-top_hide"
         onClick={scrollToTop}
       >
         &#8657;

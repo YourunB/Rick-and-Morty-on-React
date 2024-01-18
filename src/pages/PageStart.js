@@ -1,4 +1,5 @@
 import React from "react";
+import { NavLink } from "react-router-dom";
 
 import "./PageStart.scss";
 
@@ -13,14 +14,16 @@ export const PageStart = () => {
       <h1 className="PageStart__title">
         Rick and Morty is an American adult animated science fiction sitcom
       </h1>
-      <a href="/main" rel="noreferrer" className="PageStart__link">
-        <img
-          className="PageStart__link__img"
-          src="./images/start.png"
-          alt="Start"
-        />
-        <p className="PageStart__link__name">START</p>
-      </a>
+      <NavLink to="/main">
+        <div className="PageStart__link">
+          <img
+            className="PageStart__link__img"
+            src="./images/start.png"
+            alt="Start"
+          />
+          <p className="PageStart__link__name">START</p>
+        </div>
+      </NavLink>
       <div className="PageStart__description">
         <p>
           This is one of the <span>best animated projects</span>, beloved by
