@@ -1,10 +1,55 @@
 .PageMain {
 
   .PageMain__head {
+    padding: 0 20px;
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
     align-items: center;
+  }
+
+  .PageMain__head__input {
+    display: none;
+  }
+
+  .PageMain__head__label {
+    position: relative;
+    cursor: pointer;
+    border: solid 2px white;
+    border-radius: 15px;
+    padding: 10px;
+    display: block;
+    width: 140px;
+    transition: 1s;
+
+    &:hover {
+      transform: scale(1.1);
+    }
+
+    &:active {
+      transition: 0.2s;
+      transform: scale(0.9);
+      background: rgba(132, 255, 0, 0.4);
+      border-color: rgba(132, 255, 0, 0.601);
+    }
+  }
+
+  .PageMain__head__input:checked + .PageMain__head__label::after {
+    content: ' on';
+    z-index: 100;
+    font-weight: 700;
+    width: 100%;
+    text-align: center;
+    color: rgb(60, 213, 0);
+  }
+
+  .PageMain__head__input + .PageMain__head__label::after {
+    content: ' off';
+    z-index: 100;
+    font-weight: 700;
+    width: 100%;
+    text-align: center;
+    color: red;
   }
 
   .PageMain__cards {
@@ -63,5 +108,15 @@
       border-color: gray;
       color: gray;
     }
+  }
+
+  .to-top {
+    position: fixed;
+    right: 30px;
+    bottom: 30px;
+  }
+
+  .to-top_hide {
+    display: none;
   }
 }
