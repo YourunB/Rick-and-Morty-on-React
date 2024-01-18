@@ -1,0 +1,87 @@
+.PageAbout {
+  padding: 0 20px;
+  user-select: none;
+
+  .PageAbout__title {
+    font-size: 30px;
+    margin: 0 0 10px 0;
+    padding: 0;
+    transform: translateY(-300%);
+    animation: PageAbout-translate 1s forwards;
+  }
+
+  .PageAbout__content {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+    align-items: center;
+    opacity: 0;
+    animation: PageAbout-show 1s forwards;
+
+    p {
+      width: 100%;
+      margin: 0;
+      padding: 0;
+      text-align: justify;
+    }
+
+    a {
+      background: linear-gradient(to right,#9eff37 20%, #f7ff11 30%, #3bffe8 70%, #c9ff28 80%);
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      -webkit-background-clip: text;
+      background-size: 500% auto;
+      animation: PageAbout-iridescent 5s ease-in-out infinite alternate;
+    }
+
+    .PageAbout__content__img {
+      border-radius: 50%;
+      border: solid 5px white;
+      max-width: 350px;
+      width: 100%;
+      background: black;
+      opacity: 0;
+      scale: 0;
+      animation: PageAbout-scale 2s forwards;
+    }
+  }
+}
+
+@keyframes PageAbout-scale {
+  0% {
+    scale: 0;
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+    scale: 1;
+  }
+}
+
+@keyframes PageAbout-show {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes PageAbout-translate {
+  0% {
+    transform: translateY(-300%);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@keyframes PageAbout-iridescent {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 100% 50%;
+  }
+}

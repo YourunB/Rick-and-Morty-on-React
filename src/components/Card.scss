@@ -10,6 +10,7 @@
   transition: 1s;
   user-select: none;
   opacity: 0;
+  scale: 0;
   animation: Card-show 1s forwards;
 
   &:hover {
