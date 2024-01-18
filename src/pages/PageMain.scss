@@ -19,7 +19,7 @@
     .PageMain__head__input {
       display: none;
     }
-  
+
     .PageMain__head__label {
       position: relative;
       cursor: pointer;
@@ -29,11 +29,11 @@
       display: block;
       width: 140px;
       transition: 1s;
-  
+
       &:hover {
         transform: scale(1.1);
       }
-  
+
       &:active {
         transition: 0.2s;
         transform: scale(0.9);
@@ -44,7 +44,7 @@
   }
 
   .PageMain__head__input:checked + .PageMain__head__label::after {
-    content: ' on';
+    content: " on";
     z-index: 100;
     font-weight: 700;
     width: 100%;
@@ -53,7 +53,7 @@
   }
 
   .PageMain__head__input + .PageMain__head__label::after {
-    content: ' off';
+    content: " off";
     z-index: 100;
     font-weight: 700;
     width: 100%;

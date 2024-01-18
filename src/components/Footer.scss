@@ -10,18 +10,18 @@
   .Footer__link {
     transition: 1s;
     user-select: none;
-      
+
     .Footer__link__creator {
       padding: 0;
       margin: 0;
       font-size: 12px;
     }
-  
+
     .Footer__link__img {
       height: 20px;
       filter: invert(1);
     }
-    
+
     &:hover {
       transform: scale(1.1);
     }

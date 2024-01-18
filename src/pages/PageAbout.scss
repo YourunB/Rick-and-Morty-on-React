@@ -27,7 +27,13 @@
     }
 
     a {
-      background: linear-gradient(to right,#9eff37 20%, #f7ff11 30%, #3bffe8 70%, #c9ff28 80%);
+      background: linear-gradient(
+        to right,
+        #9eff37 20%,
+        #f7ff11 30%,
+        #3bffe8 70%,
+        #c9ff28 80%
+      );
       background-clip: text;
       -webkit-text-fill-color: transparent;
       -webkit-background-clip: text;

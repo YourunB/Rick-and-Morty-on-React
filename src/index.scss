@@ -2,7 +2,9 @@ html {
   box-sizing: border-box;
 }
 
-*, *:before, *:after {
+*,
+*:before,
+*:after {
   box-sizing: inherit;
 }
 
@@ -44,11 +46,11 @@ a {
 
 *::-webkit-scrollbar-thumb {
   border-radius: 4px;
-  background-color: #4baf24; 
+  background-color: #4baf24;
 }
 *::-webkit-scrollbar-thumb:hover {
-  background-color: #50c920; 
+  background-color: #50c920;
 }
 *::-webkit-scrollbar-thumb:active {
-  background-color: #48ff00; 
+  background-color: #48ff00;
 }

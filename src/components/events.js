@@ -1,7 +1,7 @@
-import {EventEmitter} from 'events';
+import { EventEmitter } from "events";
 
-let appEvents=new EventEmitter();
+let appEvents = new EventEmitter();
 //EventCheckCard - выбор карточки с персонажем
 //EventCloseCardModal - закрытие окна с подробным описанием персонажа
 
-export {appEvents};
+export { appEvents };
