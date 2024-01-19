@@ -32,6 +32,10 @@
     height: 50px;
     border: solid 2px white;
     transition: 1s;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
     &:hover {
       cursor: pointer;
