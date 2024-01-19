@@ -46,7 +46,7 @@ export const PageAbout = () => {
           alt="Rick and Morty"
         />
         <p>
-          This SPA was developed for educational purposes works.
+          This SPA was developed for educational purposes.
         </p>
         <p>
           The application is built on the free{" "}
