@@ -21,7 +21,10 @@ const CardModal = (props) => {
           closeModal();
         }}
       >
-        X
+        <img
+          src="./images/svg/close.svg"
+          alt="Left"
+        />
       </button>
       <img
         className="CardModal__img"

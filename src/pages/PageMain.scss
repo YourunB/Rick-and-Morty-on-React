@@ -108,13 +108,18 @@
     height: 50px;
     border: solid 2px white;
     color: white;
-    font-size: 30px;
     transition: 1s;
     padding: 0;
     display: flex;
     justify-content: center;
     align-items: center;
     line-height: 0;
+
+    img {
+      filter: invert(1);
+      width: 40px;
+      height: 40px;
+    }
 
     &:hover {
       cursor: pointer;
@@ -132,8 +137,7 @@
       cursor: default;
       transform: scale(1);
       background: none;
-      border-color: gray;
-      color: gray;
+      opacity: 0.5;
     }
   }
 

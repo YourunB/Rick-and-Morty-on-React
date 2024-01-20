@@ -219,7 +219,10 @@ export const PageMain = () => {
                   prevPage();
                 }}
               >
-                &#8656;
+                <img
+                  src="./images/svg/left.svg"
+                  alt="Left"
+                />
               </button>
             </NavLink>
             <p className="PageMain__cards__controls__page">{dataRedux.page}</p>
@@ -231,7 +234,10 @@ export const PageMain = () => {
                   nextPage();
                 }}
               >
-                &#8658;
+                <img
+                  src="./images/svg/right.svg"
+                  alt="Right"
+                />
               </button>
             </NavLink>
           </div>
@@ -249,7 +255,10 @@ export const PageMain = () => {
         className="PageMain__btn to-top to-top_hide"
         onClick={scrollToTop}
       >
-        &#8657;
+        <img
+          src="./images/svg/top.svg"
+          alt="Top"
+        />
       </button>
     </main>
   );

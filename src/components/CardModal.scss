@@ -23,8 +23,6 @@
     position: absolute;
     top: -60px;
     right: -60px;
-    font-weight: 700;
-    font-size: 20px;
     color: white;
     background: rgba(0, 0, 0, 0.5);
     border-radius: 50%;
@@ -36,6 +34,13 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    line-height: 0;
+
+    img {
+      filter: invert(1);
+      width: 40px;
+      height: 40px;
+    }
 
     &:hover {
       cursor: pointer;
