@@ -219,7 +219,7 @@ export const PageMain = () => {
                   prevPage();
                 }}
               >
-                &#8656;
+                &#11144;
               </button>
             </NavLink>
             <p className="PageMain__cards__controls__page">{dataRedux.page}</p>
@@ -231,7 +231,7 @@ export const PageMain = () => {
                   nextPage();
                 }}
               >
-                &#8658;
+                &#11146;
               </button>
             </NavLink>
           </div>
@@ -249,7 +249,7 @@ export const PageMain = () => {
         className="PageMain__btn to-top to-top_hide"
         onClick={scrollToTop}
       >
-        &#8657;
+        &#11145;
       </button>
     </main>
   );
